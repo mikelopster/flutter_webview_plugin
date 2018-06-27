@@ -49,6 +49,7 @@ class WebviewManager {
             }
         });
 
+        webView.setGeolocationEnabled(true);
         webView.setWebViewClient(webViewClient);
         webView.setWebChromeClient(new WebChromeClient() {
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
