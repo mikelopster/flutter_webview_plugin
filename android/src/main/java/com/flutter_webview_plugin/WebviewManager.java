@@ -79,7 +79,7 @@ class WebviewManager {
         webView.getSettings().setBuiltInZoomControls(withZoom);
         webView.getSettings().setSupportZoom(withZoom);
         webView.getSettings().setDomStorageEnabled(withLocalStorage);
-        webView.getSettings().setGeolocationEnabled(true);
+        // webView.getSettings().setGeolocationEnabled(true);
 
         if (clearCache) {
             clearCache();
