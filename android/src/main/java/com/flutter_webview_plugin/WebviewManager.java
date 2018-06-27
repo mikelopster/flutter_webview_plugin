@@ -49,7 +49,6 @@ class WebviewManager {
             }
         });
 
-        webView.setGeolocationEnabled(true);
         webView.setWebViewClient(webViewClient);
         webView.setWebChromeClient(new WebChromeClient() {
             public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
@@ -81,6 +80,8 @@ class WebviewManager {
         webView.getSettings().setBuiltInZoomControls(withZoom);
         webView.getSettings().setSupportZoom(withZoom);
         webView.getSettings().setDomStorageEnabled(withLocalStorage);
+        webView.setGeolocationEnabled(true);
+
         // webView.getSettings().setGeolocationEnabled(true);
 
         if (clearCache) {
