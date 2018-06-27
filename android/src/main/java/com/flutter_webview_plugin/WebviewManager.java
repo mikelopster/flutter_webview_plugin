@@ -12,6 +12,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebChromeClient;
+import android.webkit.GeolocationPermissions;
 import android.widget.FrameLayout;
 
 import io.flutter.plugin.common.MethodCall;
