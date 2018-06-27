@@ -47,7 +47,13 @@ class WebviewManager {
             }
         });
 
+        webView.setGeolocationEnabled(true)
         webView.setWebViewClient(webViewClient);
+        webView.setWebChromeClient(new WebChromeClient() {
+            public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
+                callback.invoke(origin, true, false);
+            }
+        });
     }
 
     private void clearCookies() {
@@ -122,7 +128,7 @@ class WebviewManager {
             }
         });
     }
-    /** 
+    /**
     * Reloads the Webview.
     */
     void reload(MethodCall call, MethodChannel.Result result) {
@@ -130,7 +136,7 @@ class WebviewManager {
             webView.reload();
         }
     }
-    /** 
+    /**
     * Navigates back on the Webview.
     */
     void back(MethodCall call, MethodChannel.Result result) {
@@ -138,7 +144,7 @@ class WebviewManager {
             webView.goBack();
         }
     }
-    /** 
+    /**
     * Navigates forward on the Webview.
     */
     void forward(MethodCall call, MethodChannel.Result result) {
@@ -150,13 +156,13 @@ class WebviewManager {
     void resize(FrameLayout.LayoutParams params) {
         webView.setLayoutParams(params);
     }
-    /** 
+    /**
     * Checks if going back on the Webview is possible.
     */
     boolean canGoBack() {
         return webView.canGoBack();
     }
-    /** 
+    /**
     * Checks if going forward on the Webview is possible.
     */
     boolean canGoForward() {
